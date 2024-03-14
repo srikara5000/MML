@@ -1,0 +1,13 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+img = plt.imread(r".\rose.jpg")
+img_2d = img.reshape(img.shape[0],
+img.shape[1] * img.shape[2])
+pca = PCA(n_components=200)
+img_pca = pca.fit_transform(img_2d)
+img_reconstructed = pca.inverse_transform(img_pca)
+plt.imshow(img_reconstructed)
+plt.title('Reconstructed Image')
+plt.savefig('new.jpg')
+plt.show()
