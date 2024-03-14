@@ -1,0 +1,11 @@
+def calculate_probability(material_balance):
+total_value = sum(material_balance.values())
+probability = material_balance['white'] / total_value if total_value != 0 else 0.5
+return probability
+def main():
+piece_values = {'pawn': 1, 'knight': 3, 'bishop': 3, 'rook': 5, 'queen': 9}
+material_balance = {'white': 39, 'black': 42}
+probability = calculate_probability(material_balance)
+print("Probability of white winning:", probability)
+if __name__ == "__main__":
+main()
